@@ -1,15 +1,14 @@
 import numpy as np
 import torch
 from torch.utils.data import Dataset
-from torchvision import transforms
 
 
 class mnist(Dataset):
-    def __init__(self, file):
-        # Load already preprocessed content 
-        self.imgs = torch.tensor(np.load(file)['images'])
-        self.labels = torch.tensor(np.load(file)['labels'])
-        
+    def __init__(self, path):
+        # Load already preprocessed content
+        self.imgs = torch.load(f"{path}/images.pt")
+        self.labels = torch.load(f"{path}/labels.pt")
+
     def __len__(self):
         return self.imgs.shape[0]
 

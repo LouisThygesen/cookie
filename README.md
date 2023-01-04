@@ -1,7 +1,8 @@
 cookie_test
 ==============================
 
-lol
+Project work for 02476 MLOps!
+
 
 Project Organization
 ------------
