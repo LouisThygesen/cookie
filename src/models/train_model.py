@@ -9,11 +9,12 @@ import matplotlib.pyplot as plt
 import numpy as np
 import torch
 import torch.nn as nn
-from src.data.dataset_class import mnist
-from src.models.model import Net
 from torch.optim import Adam
 from torch.utils.data import DataLoader
 from tqdm import tqdm
+
+from src.data.dataset_class import mnist
+from src.models.model import Net
 
 # Set up GPU acceleration
 if torch.cuda.is_available():
@@ -22,6 +23,7 @@ if torch.cuda.is_available():
 else:
     device = torch.device("cpu")
     print("Using CPU!")
+
 
 def get_setup():
     """Description: Gets hyper-parameters from command line and stores all hyper-parameters in an object

@@ -21,7 +21,7 @@ class Net(nn.Module):
             raise ValueError('Expected each sample to have shape [1,28,28]')
 
         """
-        
+
         x1 = F.relu(F.max_pool2d(self.conv1(x), 2))
         x1 = F.relu(F.max_pool2d(self.conv2_drop(self.conv2(x1)), 2))
 

@@ -3,9 +3,10 @@ import argparse
 import numpy as np
 import torch
 from PIL import Image
+from torchvision import transforms
+
 from src.data.dataset_class import mnist
 from src.models.model import Net
-from torchvision import transforms
 
 # Set up GPU acceleration
 if torch.cuda.is_available():

@@ -8,6 +8,7 @@ from torchvision import transforms
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from sklearn.manifold import TSNE
+
 from src.models.model import Net
 
 # Set up GPU acceleration
