@@ -39,10 +39,6 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    - name: Install test dependencies
-      run: |
-        pip install -r test_requirements.txt
-
     - uses: iterative/setup-dvc@v1
     - name: Get data
       run: dvc pull
