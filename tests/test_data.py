@@ -6,6 +6,7 @@ import pytest
 
 from src.data.dataset_class import mnist
 
+@pytest.mark.skipif(not os.path.exists('./data'), reason="Data files not found")
 class TestData():
     def test_one(self):
         dataset = mnist('data/processed/train_data')
@@ -18,8 +19,6 @@ class TestData():
     def test_three(self):
         dataset = mnist('data/processed/train_data')
         img, _ = dataset.__getitem__(0)
-        
-        print(type(img.shape))
         assert list(img.shape) == [28,28], "shape check" 
 
     def test_four(self):
