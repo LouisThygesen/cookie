@@ -2,7 +2,6 @@ import numpy as np
 import torch
 from torch.utils.data import Dataset
 
-
 class mnist(Dataset):
     def __init__(self, path):
         # Load already preprocessed content

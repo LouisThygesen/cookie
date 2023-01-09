@@ -23,7 +23,6 @@ else:
     device = torch.device("cpu")
     print("Using CPU!")
 
-
 def get_setup():
     """Description: Gets hyper-parameters from command line and stores all hyper-parameters in an object
     Return: config-object"""
@@ -73,8 +72,7 @@ def train(config, model, criterion, optimizer, train_dl):
     # Create directory to save best model
     now = datetime.now()
     current_time = now.strftime("%H-%M-%S")
-    weights_path = "./models/{}".format(current_time)
-    os.mkdir(weights_path)
+    weights_path = "./models/{}.pth".format(current_time)
 
     for epoch in range(config.epochs):
         train_batch_loss = train_epoch(model, criterion, optimizer, train_dl, epoch)
@@ -83,7 +81,7 @@ def train(config, model, criterion, optimizer, train_dl):
         # Save if model is better
         if train_batch_loss < best_loss:
             best_loss = train_batch_loss
-            torch.save(model.state_dict(), f"{weights_path}/model.pth")
+            torch.save(model.state_dict(), weights_path)
 
     # Plot grap of training  loss
     plt.figure()

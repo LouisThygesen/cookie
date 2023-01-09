@@ -14,6 +14,14 @@ class Net(nn.Module):
         self.fc2 = nn.Linear(50, 10)
 
     def forward(self, x):
+        """
+        if x.ndim != 4:
+            raise ValueError('Expected input to be a 4D tensor')
+        if x.shape[1] != 1 or x.shape[2] != 28 or x.shape[3] != 28:
+            raise ValueError('Expected each sample to have shape [1,28,28]')
+
+        """
+        
         x1 = F.relu(F.max_pool2d(self.conv1(x), 2))
         x1 = F.relu(F.max_pool2d(self.conv2_drop(self.conv2(x1)), 2))
 
